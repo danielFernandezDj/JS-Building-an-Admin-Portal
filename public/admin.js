@@ -133,7 +133,13 @@ function bookInputs(book) {
     })
 
     // todo - Create a book 'form'. ••••••••••••••••••••••••••••••••
-    
+    // Select the form button.
+    let buttonSummitForm = document.getElementById('buttonSummitForm')
+
+    // Create a button EventListener to summit the form
+    buttonSummitForm.addEventListener('click', () => {
+        
+    })
 
     // append area.
     li.append(quantityInput, saveButton)
