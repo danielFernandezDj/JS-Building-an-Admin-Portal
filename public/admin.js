@@ -108,3 +108,25 @@ function bookInputs(book) {
 }
 
 main()
+
+
+// ! BONUS: 
+// ? Delete some books.
+// Remove Book Button
+// Add a delete button for each book. When you click it:
+
+// The book should be removed from the list of books on the admin page immediately (without having to refresh the page).
+// A fetch request should delete it from the server.
+
+// ? Add Book Form.
+// Add a form for creating a new book below the list of current books. 
+// An admin should be able to fill out inputs for:
+// The book's title
+// The book's description
+// The book's image URL
+// Since this is the only place where your friend publishes their books, automatically set the year to the current year when they submit the form. Calculate the current year using the following snippet:
+// * const year = new Date().getFullYear();
+
+//  Give the form a submit button. When an admin clicks it:
+//  Send a fetch request to save the book to the server,
+//  Add the book to the list of books on the admin page immediately (without having to refresh the page).
