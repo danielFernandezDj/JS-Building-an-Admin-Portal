@@ -152,7 +152,7 @@ function bookInputs(book) {
 
             })
         }
-        
+    })
 
     // append area.
     li.append(quantityInput, saveButton)
