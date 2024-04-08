@@ -3,7 +3,7 @@
 async function changeBookName() {
     let response = await fetch('http://localhost:3001/updateBook ', {
         method: 'PATCH',
-        headers: {
+        headers: { 
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -14,4 +14,6 @@ async function changeBookName() {
     let result = await response.json()
     console.log(result)
 }
+
+changeBookName()
 

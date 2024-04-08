@@ -8,7 +8,7 @@ async function main() {
 
 function renderBook(book) {
     let bookContainer = document.querySelector('.book-container')
-    bookContainer.innerHTML += `
+    bookContainer.innerHTML += `        
         <div class="col-sm-3">
             <div class="card" style="width: 100%;">
                 ${book.imageURL ? `
