@@ -34,9 +34,6 @@
 // like this:
 */
 
-
-// make selectBookID equal to and Id
-
 //? Test: display a paragraph.
 // let rootDiv = document.getElementById('root')
 
@@ -61,6 +58,7 @@
 // newParagraph()
 
 // ! Fetch to the API.
+
 async function main() {
     let response = await fetch('http://localhost:3001/listBooks')
     let books = await response.json()
@@ -72,10 +70,13 @@ async function main() {
 
 // ! Input solution.
 function bookInputs(book) {
+    // Styles Code here.
+    let changeColor = document.getElementById('changeColor')
+        changeColor.style.border = '1px solid red';
     let rootDiv = document.getElementById('root')
-    rootDiv.style.border = '1px solid red';
-    rootDiv.style.margin = '20px';
-    rootDiv.style.textIndent = '20px';
+        rootDiv.style.border = '1px solid red';
+        rootDiv.style.margin = '20px';
+        rootDiv.style.textIndent = '20px';
 
     // create new 'li'.
     let li = document.createElement('li')
@@ -91,7 +92,7 @@ function bookInputs(book) {
     let saveButton = document.createElement('button')
     saveButton.textContent = 'Save'
     saveButton.style.margin = '10px'
-    saveButton.style.backgroundColor = 'green'
+    saveButton.style.backgroundColor = '#7bc760'
 
     saveButton.addEventListener('click', () => {
         fetch('http://localhost:3001/updateBook', {
@@ -110,7 +111,7 @@ function bookInputs(book) {
     let deleteBookButton = document.createElement('button')
     deleteBookButton.textContent = 'delete book'
     deleteBookButton.style.margin = '10px'
-    deleteBookButton.style.backgroundColor = 'red'
+    deleteBookButton.style.backgroundColor = '#c76060'
 
     deleteBookButton.addEventListener('click', () => {
         fetch(`http://localhost:3001/removeBook/${book.id}`, {
@@ -119,7 +120,6 @@ function bookInputs(book) {
                 'Content-Type': 'application/json'
             }
         })
-
             .then(response => {
                 if (response.ok) {
                     console.log('Book deleted successfully');
@@ -130,14 +130,13 @@ function bookInputs(book) {
             .catch(error => {
                 console.error('Error deleting book:', error);
             });
-
     })
 
     // todo - Create a book 'form'. ••••••••••••••••••••••••••••••••
 
 
 
-    // append section.
+    // append area.
     li.append(quantityInput, saveButton)
     li.append(deleteBookButton)
     rootDiv.append(li);
