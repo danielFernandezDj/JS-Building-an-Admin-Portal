@@ -1,4 +1,4 @@
-//! Testing the Server.
+// ! Testing the Server.
 // async function changeBookName() {
 //     let response = await fetch('http://localhost:3001/updateBook ', {
 //         method: 'PATCH',
@@ -6,8 +6,7 @@
 //             'Content-Type': 'application/json'
 //         },
 //         body: JSON.stringify({
-//             'id': 3,
-//             'title': "The Annals of Arathrae",
+//             'id': 1,
 //         }),
 //     })
 //     let result = await response.json()
@@ -16,7 +15,7 @@
 
 // changeBookName()
 
-//! 3. Deliverables
+// ! 3. Deliverables
 /*
 Using the API documentation as a guide for making fetch requests 
 and what you've learned about the DOM throughout this course, write 
@@ -37,24 +36,77 @@ styling. When you're finished, the page should work something
 like this:
 */
 
-let rootDiv = document.getElementById('root')
+//? Test: display a paragraph.
+// let rootDiv = document.getElementById('root')
 
-function newParagraph() {
-    // create our paragraph. 
-    let createNew = document.createElement('p')
-        createNew.style.color = 'blue';
-        createNew.style.border = '1px solid red';
-        createNew.style.margin = '20px';
-        createNew.style.textIndent = '20px';
+// function newParagraph() {
+//     // create our paragraph. 
+//     let createNew = document.createElement('p')
+//         createNew.style.color = 'blue';
+//         createNew.style.border = '1px solid red';
+//         createNew.style.margin = '20px';
+//         createNew.style.textIndent = '20px';
     
-    // give a name to our paragraph.
-    createNew.textContent = 'hello'
+//     // give a name to our paragraph.
+//     createNew.textContent = 'hello'
     
-    // append the Child to the div = 'root'.
-    rootDiv.appendChild(createNew);
+//     // append the Child to the div = 'root'.
+//     rootDiv.appendChild(createNew);
 
-    // Log the created paragraph to the console
-    console.log(`${createNew} is working`)
+//     // Log the created paragraph to the console
+//     console.log(`${createNew} is working`)
+// }
+
+// newParagraph()
+
+// ! Fetch to the API.
+async function main() {
+    let response = await fetch('http://localhost:3001/listBooks')
+    let books = await response.json()
+
+    books.forEach(bookInputs)
+
+    console.log(books)
 }
 
-newParagraph()
+// ! First Input.
+
+function bookInputs(book) {
+    let rootDiv = document.getElementById('root')
+        rootDiv.style.color = 'blue';
+        rootDiv.style.border = '1px solid red';
+        rootDiv.style.margin = '20px';
+        rootDiv.style.textIndent = '20px';
+
+    // create new 'li'.
+    let li = document.createElement('li')
+    li.textContent = book.title
+
+    // create new 'input'. 
+    let quantityInputs = document.createElement('input')
+    quantityInputs.value = book.quantity
+
+    // create a save 'button'.
+    let saveButton = document.createElement('button')
+    saveButton.textContent = 'Save'
+
+    saveButton.addEventListener('click', () => {
+        fetch('http://localhost:3001/listBooks', {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application.json',
+            },
+            body: JSON.stringify({
+                id: book.id,
+                quantity: quantityInputs.value
+            })
+        })
+    })
+    
+    // append the new Child's.
+    rootDiv.appendChild(li);
+
+    console.log(`${rootDiv} is working`)
+}
+
+main()
