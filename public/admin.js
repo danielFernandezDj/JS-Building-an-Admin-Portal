@@ -73,7 +73,6 @@ async function main() {
 // ! Input solution.
 function bookInputs(book) {
     let rootDiv = document.getElementById('root')
-    rootDiv.style.color = 'blue';
     rootDiv.style.border = '1px solid red';
     rootDiv.style.margin = '20px';
     rootDiv.style.textIndent = '20px';
@@ -85,11 +84,14 @@ function bookInputs(book) {
     // create new 'inputs'. 
     let quantityInput = document.createElement('input')
     quantityInput.value = book.quantity
+    quantityInput.style.margin = "10px"
 
 
     // create a save 'button'. ••••••••••••••••••••••••••••••••
     let saveButton = document.createElement('button')
     saveButton.textContent = 'Save'
+    saveButton.style.margin = '10px'
+    saveButton.style.backgroundColor = 'green'
 
     saveButton.addEventListener('click', () => {
         fetch('http://localhost:3001/updateBook', {
@@ -107,6 +109,8 @@ function bookInputs(book) {
     // Create a Delete 'button'. ••••••••••••••••••••••••••••••••
     let deleteBookButton = document.createElement('button')
     deleteBookButton.textContent = 'delete book'
+    deleteBookButton.style.margin = '10px'
+    deleteBookButton.style.backgroundColor = 'red'
 
     deleteBookButton.addEventListener('click', () => {
         fetch(`http://localhost:3001/removeBook/${book.id}`, {
@@ -115,24 +119,27 @@ function bookInputs(book) {
                 'Content-Type': 'application/json'
             }
         })
-        
-        .then(response => {
-            if (response.ok) {
-                console.log('Book deleted successfully');
-            } else {
-                console.error('Failed to delete book');
-            }
-        })
-        .catch(error => {
-            console.error('Error deleting book:', error);
-        });
-        
+
+            .then(response => {
+                if (response.ok) {
+                    console.log('Book deleted successfully');
+                } else {
+                    console.error('Failed to delete book');
+                }
+            })
+            .catch(error => {
+                console.error('Error deleting book:', error);
+            });
+
     })
+
+    // todo - Create a book 'form'. ••••••••••••••••••••••••••••••••
+
 
 
     // append section.
-    li.append(deleteBookButton)
     li.append(quantityInput, saveButton)
+    li.append(deleteBookButton)
     rootDiv.append(li);
 
     console.log(`${rootDiv} is working`)
