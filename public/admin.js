@@ -37,19 +37,24 @@ styling. When you're finished, the page should work something
 like this:
 */
 
-//! The solution 3.
 let rootDiv = document.getElementById('root')
 
 function newParagraph() {
     // create our paragraph. 
     let createNew = document.createElement('p')
-
+        createNew.style.color = 'blue';
+        createNew.style.border = '1px solid red';
+        createNew.style.margin = '20px';
+        createNew.style.textIndent = '20px';
+    
     // give a name to our paragraph.
     createNew.textContent = 'hello'
-
+    
     // append the Child to the div = 'root'.
     rootDiv.appendChild(createNew);
 
     // Log the created paragraph to the console
     console.log(`${createNew} is working`)
 }
+
+newParagraph()
