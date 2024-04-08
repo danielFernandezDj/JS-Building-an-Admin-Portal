@@ -133,13 +133,14 @@ function bookInputs(book) {
     })
 
     // todo - Create a book 'form'. ••••••••••••••••••••••••••••••••
-
-
+    
 
     // append area.
     li.append(quantityInput, saveButton)
     li.append(deleteBookButton)
     rootDiv.append(li);
+    // the form part...
+
 
     console.log(`${rootDiv} is working`)
 }
@@ -155,9 +156,9 @@ main()
 // ? Add Book Form.
 // Add a form for creating a new book below the list of current books. 
 // An admin should be able to fill out inputs for:
-// The book's title
-// The book's description
-// The book's image URL
+// *The book's title
+// *The book's description
+// *The book's image URL
 // Since this is the only place where your friend publishes their books, automatically set the year to the current year when they submit the form. Calculate the current year using the following snippet:
 // * const year = new Date().getFullYear();
 
