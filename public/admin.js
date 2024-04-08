@@ -133,13 +133,26 @@ function bookInputs(book) {
     })
 
     // todo - Create a book 'form'. ••••••••••••••••••••••••••••••••
-    // Select the form button.
+    // Select the 'form-button' & the 'Inputs' using DOM selector. 
     let buttonSummitForm = document.getElementById('buttonSummitForm')
-
+    let imageURLInput = document.getElementById('imageURLInput')
+    let inputText = document.getElementById('inputText')
+    let inputDescription = document.getElementById('inputDescription')
+    
     // Create a button EventListener to summit the form
     buttonSummitForm.addEventListener('click', () => {
+        fetch('http://localhost:3001/addBook'), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                imageURL: 'imageURLInput',
+                title: '', description: '',
+
+            })
+        }
         
-    })
 
     // append area.
     li.append(quantityInput, saveButton)
