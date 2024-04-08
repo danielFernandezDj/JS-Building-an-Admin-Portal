@@ -34,6 +34,9 @@
 // like this:
 */
 
+
+// make selectBookID equal to and Id
+
 //? Test: display a paragraph.
 // let rootDiv = document.getElementById('root')
 
@@ -44,10 +47,10 @@
 //         createNew.style.border = '1px solid red';
 //         createNew.style.margin = '20px';
 //         createNew.style.textIndent = '20px';
-    
+
 //     // give a name to our paragraph.
 //     createNew.textContent = 'hello'
-    
+
 //     // append the Child to the div = 'root'.
 //     rootDiv.appendChild(createNew);
 
@@ -70,10 +73,10 @@ async function main() {
 // ! Input solution.
 function bookInputs(book) {
     let rootDiv = document.getElementById('root')
-        rootDiv.style.color = 'blue';
-        rootDiv.style.border = '1px solid red';
-        rootDiv.style.margin = '20px';
-        rootDiv.style.textIndent = '20px';
+    rootDiv.style.color = 'blue';
+    rootDiv.style.border = '1px solid red';
+    rootDiv.style.margin = '20px';
+    rootDiv.style.textIndent = '20px';
 
     // create new 'li'.
     let li = document.createElement('li')
@@ -83,7 +86,8 @@ function bookInputs(book) {
     let quantityInput = document.createElement('input')
     quantityInput.value = book.quantity
 
-    // create a save 'button'.
+
+    // create a save 'button'. ••••••••••••••••••••••••••••••••
     let saveButton = document.createElement('button')
     saveButton.textContent = 'Save'
 
@@ -99,8 +103,35 @@ function bookInputs(book) {
             })
         })
     })
-    
+
+    // Create a Delete 'button'. ••••••••••••••••••••••••••••••••
+    let deleteBookButton = document.createElement('button')
+    deleteBookButton.textContent = 'delete book'
+
+    deleteBookButton.addEventListener('click', () => {
+        fetch(`http://localhost:3001/removeBook/${book.id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        
+        .then(response => {
+            if (response.ok) {
+                console.log('Book deleted successfully');
+            } else {
+                console.error('Failed to delete book');
+            }
+        })
+        .catch(error => {
+            console.error('Error deleting book:', error);
+        });
+        
+    })
+
+
     // append section.
+    li.append(deleteBookButton)
     li.append(quantityInput, saveButton)
     rootDiv.append(li);
 
@@ -110,13 +141,10 @@ function bookInputs(book) {
 main()
 
 
-// ! BONUS: 
+// ! BONUS: ••••••••••••••••••••••••••••••••
 // ? Delete some books.
 // Remove Book Button
 // Add a delete button for each book. When you click it:
-
-// The book should be removed from the list of books on the admin page immediately (without having to refresh the page).
-// A fetch request should delete it from the server.
 
 // ? Add Book Form.
 // Add a form for creating a new book below the list of current books. 
@@ -130,3 +158,5 @@ main()
 //  Give the form a submit button. When an admin clicks it:
 //  Send a fetch request to save the book to the server,
 //  Add the book to the list of books on the admin page immediately (without having to refresh the page).
+
+
