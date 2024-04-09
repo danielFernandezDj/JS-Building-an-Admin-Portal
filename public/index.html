@@ -43,53 +43,18 @@
                 <label for="imageURLInput">Paste Image URL:</label>
                 <input type="text" id="imageURLInput">
 
-                <label for="inputText">Create a Title:</label>
-                <input type="text" id="inputText">
+                <label for="inputTitle">Create a Title:</label>
+                <input type="text" id="inputTitle">
 
                 <label for="inputDescription">Create a Description:</label>
                 <input type="text" id="inputDescription" style="height: 100px;">
-                
+
                 <button id="buttonSummitForm" style="margin: 10px; background-color: #0ac6f5;">
                     Create a new Book!
                 </button>
             </div>
         </form>
     </div>
-
-    <!-- TODO GPT form •••••••••••••••••••••••••••• -->
-    <h2>Image URL Input</h2>
-
-    <label for="imageUrlInput">Paste Image URL:</label>
-    <input type="text" id="imageUrlInput">
-    <!-- <button onclick="displayImage()">Display Image</button> -->
-
-    <div id="imageContainer">
-        <!-- Image will be displayed here -->
-    </div>
-
-    <script>
-function displayImage() {
-    // Get the value of the input field
-    let imageUrl = document.getElementById("imageUrlInput").value;
-
-    // Get the image container element
-    let imageContainer = document.getElementById("imageContainer");
-
-    // Clear previous image if any
-    imageContainer.innerHTML = "";
-
-    // Create an image element
-    let imageElement = document.createElement("img");
-
-    // Set the source attribute of the image element to the provided URL
-    imageElement.src = imageUrl;
-
-    // Add the image element to the image container
-    imageContainer.appendChild(imageElement);
-}
-</script>
-
-
 
     <!-- Our JavaScript Code  -->
     <script src="index.js"></script>
