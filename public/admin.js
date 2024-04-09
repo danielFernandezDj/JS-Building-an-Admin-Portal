@@ -153,9 +153,10 @@ function bookInputs(book) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                id: 3,
-                imageURL: 'imageURLInput',
-                title: 'inputTitle', description: 'inputDescription',
+                id: 5,
+                imageURL: imageURLInput,
+                title: inputTitle, description: inputDescription,
+                year: 2016, quantity: 8,
             })
         })
         console.log('Button FORM is working!')

@@ -7,6 +7,22 @@
       "year": 2007,
       "quantity": "15",
       "imageURL": "/assets/tess.jpg"
+    },
+    {
+      "id": 3,
+      "title": "inputTitle",
+      "year": 2016,
+      "quantity": 8,
+      "imageURL": "https://images.unsplash.com/photo-1712431768806-5b1c94fc0cf3?w=1400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyN3x8fGVufDB8fHx8fA%3D%3D",
+      "description": "inputDescription"
+    },
+    {
+      "id": 4,
+      "title": {},
+      "year": 2016,
+      "quantity": 8,
+      "imageURL": {},
+      "description": {}
     }
   ]
 }
