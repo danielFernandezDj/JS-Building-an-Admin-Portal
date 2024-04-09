@@ -136,12 +136,11 @@ function bookInputs(book) {
 
     // todo - Create a book 'form'. ••••••••••••••••••••••••••••••••
 
-
+    
     // Know How many books are displayed now.
     let response = await fetch('http://localhost:3001/listBooks')
-    let totalBooks = await response.json
-    console.log(`This is the total number of books`, totalBooks.id)
-
+    let totalBooks = await response.json()
+    console.log(`This is the total number of books`, totalBooks.length)
 
 
     // Select the 'form-button' & the 'Inputs' using DOM selector. 
