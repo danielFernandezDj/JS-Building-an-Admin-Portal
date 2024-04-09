@@ -14,6 +14,8 @@
 // }
 // changeBookName()
 
+const { response } = require("express")
+
 /* //! Part 3. Deliverables
 // Using the API documentation as a guide for making fetch requests 
 // and what you've learned about the DOM throughout this course, write 
@@ -72,11 +74,11 @@ async function main() {
 function bookInputs(book) {
     // Styles Code here.
     let changeColor = document.getElementById('changeColor')
-        changeColor.style.border = '1px solid red';
+    changeColor.style.border = '1px solid red';
     let rootDiv = document.getElementById('root')
-        rootDiv.style.border = '1px solid red';
-        rootDiv.style.margin = '20px';
-        rootDiv.style.textIndent = '20px';
+    rootDiv.style.border = '1px solid red';
+    rootDiv.style.margin = '20px';
+    rootDiv.style.textIndent = '20px';
 
     // create new 'li'.
     let li = document.createElement('li')
@@ -133,24 +135,36 @@ function bookInputs(book) {
     })
 
     // todo - Create a book 'form'. ••••••••••••••••••••••••••••••••
+
+
+    // Know How many books are displayed now.
+    let response = await fetch('http://localhost:3001/listBooks')
+    let totalBooks = await response.json
+    console.log(`This is the total number of books`, totalBooks.id)
+
+
+
     // Select the 'form-button' & the 'Inputs' using DOM selector. 
     let buttonSummitForm = document.getElementById('buttonSummitForm')
     let imageURLInput = document.getElementById('imageURLInput')
     let inputTitle = document.getElementById('inputTitle')
     let inputDescription = document.getElementById('inputDescription')
-    
+
     // Create a button EventListener to summit the form
-    buttonSummitForm.addEventListener('click', () => {
-        fetch('http://localhost:3001/addBook'), {
+    buttonSummitForm.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        fetch('http://localhost:3001/addBook', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                if: ,
                 imageURL: 'imageURLInput',
                 title: 'inputTitle', description: 'inputDescription',
             })
-        } 
+        })
         console.log('Button is working!')
     })
 
